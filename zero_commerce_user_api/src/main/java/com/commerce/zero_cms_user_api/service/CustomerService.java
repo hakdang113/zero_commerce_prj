@@ -23,6 +23,18 @@ public class CustomerService {
                 .findFirst();
         // customerRepository에서 email을 기준으로 하나를 가져옴
         // 고객이 입력한 password와 가입했던 getPassWord()와 같고,
-        // 이메일이 인증된 구매자라면
+        // 이메일이 인증된 고객이라면
     }
+
+
+    public Optional<CustomerEntity> findByIdAndEmail(Long id, String email) {
+        return customerRepository.findById(id).stream()
+                .filter(
+                        customerEntity -> customerEntity.getEmail().equals(email)
+                )
+                .findFirst();
+        // customerRepository에서 id 와 email을 기준으로 하나를 가져옴
+        // 고객이 입력한 id, email과 가입했던 getId, getEmail이 같으면
+    }
+
 }
