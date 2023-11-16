@@ -1,7 +1,7 @@
 package com.commerce.zero_cms_user_api.controller;
 
 import com.commerce.zero_cms_user_api.application.SignUpApplication;
-import com.commerce.zero_cms_user_api.domain.SignUpForm;
+import com.commerce.zero_cms_user_api.domain.form.SignUpForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

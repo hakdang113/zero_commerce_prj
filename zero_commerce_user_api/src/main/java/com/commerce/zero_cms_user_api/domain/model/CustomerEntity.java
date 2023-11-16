@@ -1,6 +1,6 @@
 package com.commerce.zero_cms_user_api.domain.model;
 
-import com.commerce.zero_cms_user_api.domain.SignUpForm;
+import com.commerce.zero_cms_user_api.domain.form.SignUpForm;
 import lombok.*;
 import org.hibernate.envers.AuditOverride;
 

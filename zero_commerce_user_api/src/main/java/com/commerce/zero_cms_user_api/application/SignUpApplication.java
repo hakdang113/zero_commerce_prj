@@ -2,7 +2,7 @@ package com.commerce.zero_cms_user_api.application;
 
 import com.commerce.zero_cms_user_api.client.MailgunClient;
 import com.commerce.zero_cms_user_api.client.mailgun.SendMailForm;
-import com.commerce.zero_cms_user_api.domain.SignUpForm;
+import com.commerce.zero_cms_user_api.domain.form.SignUpForm;
 import com.commerce.zero_cms_user_api.domain.model.CustomerEntity;
 import com.commerce.zero_cms_user_api.exception.CustomErrorCode;
 import com.commerce.zero_cms_user_api.exception.CustomException;

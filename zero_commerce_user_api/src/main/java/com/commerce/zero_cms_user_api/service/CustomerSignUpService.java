@@ -1,6 +1,6 @@
 package com.commerce.zero_cms_user_api.service;
 
-import com.commerce.zero_cms_user_api.domain.SignUpForm;
+import com.commerce.zero_cms_user_api.domain.form.SignUpForm;
 import com.commerce.zero_cms_user_api.domain.model.CustomerEntity;
 import com.commerce.zero_cms_user_api.domain.repository.CustomerRepository;
 import com.commerce.zero_cms_user_api.exception.CustomErrorCode;
