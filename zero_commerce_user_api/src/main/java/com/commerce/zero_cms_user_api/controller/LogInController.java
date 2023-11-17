@@ -25,5 +25,10 @@ public class LogInController {
         return ResponseEntity.ok(logInApplication.customerLogInToken(form));
     }
 
+    //seller
+    @PostMapping("/seller")
+    public ResponseEntity<String> logInSeller(@RequestBody LogInForm form) {
+        return ResponseEntity.ok(logInApplication.sellerLogInToken(form));
+    }
 
 }
