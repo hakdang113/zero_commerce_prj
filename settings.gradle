@@ -1,3 +1,4 @@
 rootProject.name = 'zero_commerce_prj'
 include 'zero_commerce_user_api'
+include 'zero_commerce_security'
 
