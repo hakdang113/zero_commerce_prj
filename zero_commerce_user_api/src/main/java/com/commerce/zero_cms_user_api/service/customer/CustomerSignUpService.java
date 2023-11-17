@@ -1,4 +1,4 @@
-package com.commerce.zero_cms_user_api.service;
+package com.commerce.zero_cms_user_api.service.customer;
 
 import com.commerce.zero_cms_user_api.domain.form.SignUpForm;
 import com.commerce.zero_cms_user_api.domain.model.CustomerEntity;
@@ -27,7 +27,7 @@ public class CustomerSignUpService {
         return customerRepository.save(CustomerEntity.from(form)); // form에서 받아온 정보를 repository에 저장
     }
 
-    // 이메일 중복을 확인하기 위한 메서드
+    // 고객 이메일 중복을 확인하기 위한 메서드
     public boolean isEmailExist(String email) {
         return customerRepository.findByEmail(email.toLowerCase(Locale.ROOT)) // 소문자로 변환
                 .isPresent();

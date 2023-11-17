@@ -2,7 +2,7 @@ package com.commerce.zero_cms_user_api.config.filter;
 
 import com.commerce.zero_cms_security.JwtAuthenticationTokenProvider;
 import com.commerce.zero_cms_security.common.UserVo;
-import com.commerce.zero_cms_user_api.service.CustomerService;
+import com.commerce.zero_cms_user_api.service.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
 
 import javax.servlet.*;

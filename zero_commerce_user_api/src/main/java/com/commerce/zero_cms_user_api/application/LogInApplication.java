@@ -6,7 +6,7 @@ import com.commerce.zero_cms_user_api.domain.form.LogInForm;
 import com.commerce.zero_cms_user_api.domain.model.CustomerEntity;
 import com.commerce.zero_cms_user_api.exception.CustomErrorCode;
 import com.commerce.zero_cms_user_api.exception.CustomException;
-import com.commerce.zero_cms_user_api.service.CustomerService;
+import com.commerce.zero_cms_user_api.service.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

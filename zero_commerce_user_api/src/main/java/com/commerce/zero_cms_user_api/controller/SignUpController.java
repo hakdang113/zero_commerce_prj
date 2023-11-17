@@ -29,4 +29,20 @@ public class SignUpController {
         return ResponseEntity.ok("인증이 정상적으로 완료되었습니다.");
     }
 
+
+    // seller
+    // 회원 가입
+    @PostMapping("/seller")
+    public ResponseEntity<String> sellerSignUp(@RequestBody SignUpForm form) {
+        return ResponseEntity.ok(signUpApplication.sellerSignUp(form));
+    }
+
+    // 인증
+    @GetMapping("/seller/verify")
+    public ResponseEntity<String> verifySeller(String email, String code) {
+        signUpApplication.sellerVerify(email, code);
+        return ResponseEntity.ok("인증이 정상적으로 완료되었습니다.");
+    }
+
+
 }

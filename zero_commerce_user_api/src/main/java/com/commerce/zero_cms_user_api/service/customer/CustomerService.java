@@ -1,4 +1,4 @@
-package com.commerce.zero_cms_user_api.service;
+package com.commerce.zero_cms_user_api.service.customer;
 
 
 import com.commerce.zero_cms_user_api.domain.model.CustomerEntity;
