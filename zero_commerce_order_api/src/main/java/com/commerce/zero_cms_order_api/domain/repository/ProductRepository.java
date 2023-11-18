@@ -16,4 +16,7 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
     Optional<ProductEntity> findWithProductItemsById(Long id);
 
 
+    @EntityGraph(attributePaths = {"productItemEntities"}, type = EntityGraph.EntityGraphType.LOAD)
+    Optional<ProductEntity> findBySellerIdAndId(Long sellerId, Long id);
+
 }

@@ -1,7 +1,9 @@
 package com.commerce.zero_cms_order_api.controller;
 
+import com.commerce.zero_cms_order_api.domain.RegisterProductItemForm;
 import com.commerce.zero_cms_order_api.domain.dto.ProductDto;
 import com.commerce.zero_cms_order_api.domain.RegisterProductForm;
+import com.commerce.zero_cms_order_api.service.ProductItemService;
 import com.commerce.zero_cms_order_api.service.ProductService;
 import com.commerce.zero_cms_security.JwtAuthenticationTokenProvider;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class SellerProductController {
 
     private final ProductService productService;
+    private final ProductItemService productItemService;
     private final JwtAuthenticationTokenProvider jwtAuthenticationTokenProvider;
 
 
@@ -27,6 +30,14 @@ public class SellerProductController {
         // return 을 위한 Dto model 필요
         return ResponseEntity.ok(ProductDto.from(productService.registerProduct(jwtAuthenticationTokenProvider.getUserVo(token).getId(), form)));
 
+    }
+
+    @PostMapping("/item")
+    public ResponseEntity<ProductDto> registerProductItem(@RequestHeader (name = "X-AUTH_TOKEN") String token,
+                                                          @RequestBody RegisterProductItemForm form) {
+
+        // return 을 위한 Dto model 필요
+        return ResponseEntity.ok(ProductDto.from(productItemService.registerProductItem(jwtAuthenticationTokenProvider.getUserVo(token).getId(), form)));
 
     }
 

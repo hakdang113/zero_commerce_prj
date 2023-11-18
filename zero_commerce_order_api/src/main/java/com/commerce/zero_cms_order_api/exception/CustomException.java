@@ -19,4 +19,15 @@ public class CustomException extends RuntimeException {
         this.customErrorCode = customErrorCode;
         this.status = customErrorCode.getHttpStatus().value();
     }
+
+
+    @AllArgsConstructor
+    @Builder
+    @NoArgsConstructor
+    @Getter
+    public static class CustomExceptionResponse {
+        private int status;
+        private String code;
+        private String message;
+    }
 }
