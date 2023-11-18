@@ -43,7 +43,7 @@ public class SignUpApplication {
                 .build();
         mailgunClient.sendEmail(sendMailForm); // 이메일 발송
 
-        customerSignUpService.changeCustomerValidationEmail(customer.getId(), randomCode); // 이메일 인증 상태 변경
+        customerSignUpService.changeCustomerValidationEmail(customer.getId(), randomCode); // 고객 이메일 인증 상태 변경
 
         return "감사합니다. 회원 가입에 성공했습니다!";
     }
@@ -57,7 +57,7 @@ public class SignUpApplication {
     // seller
     // seller 회원 가입
     public String sellerSignUp(SignUpForm form) {
-        if (sellerSignUpService.isEmailExist(form.getEmail())) {// 회원 가입하려는 이메일이 이미 존재하는 경우
+        if (sellerSignUpService.isEmailExist(form.getEmail())) { // 회원 가입하려는 이메일이 이미 존재하는 경우
             // Exception
             throw new CustomException(CustomErrorCode.ALREADY_REGISTER_USER);
 
@@ -75,7 +75,7 @@ public class SignUpApplication {
                 .build();
         mailgunClient.sendEmail(sendMailForm); // 이메일 발송
 
-        sellerSignUpService.changeSellerValidationEmail(seller.getId(), randomCode); // 이메일 인증 상태 변경
+        sellerSignUpService.changeSellerValidationEmail(seller.getId(), randomCode); // 판매자 이메일 인증 상태 변경
 
         return "감사합니다. 회원 가입에 성공했습니다!";
     }
