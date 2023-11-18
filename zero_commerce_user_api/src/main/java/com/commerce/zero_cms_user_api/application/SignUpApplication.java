@@ -75,7 +75,7 @@ public class SignUpApplication {
                 .build();
         mailgunClient.sendEmail(sendMailForm); // 이메일 발송
 
-        customerSignUpService.changeCustomerValidationEmail(seller.getId(), randomCode); // 이메일 인증 상태 변경
+        sellerSignUpService.changeSellerValidationEmail(seller.getId(), randomCode); // 이메일 인증 상태 변경
 
         return "감사합니다. 회원 가입에 성공했습니다!";
     }

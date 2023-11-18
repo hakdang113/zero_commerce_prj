@@ -7,8 +7,9 @@ import com.commerce.zero_cms_user_api.exception.CustomErrorCode;
 import com.commerce.zero_cms_user_api.exception.CustomException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+
 import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Optional;
