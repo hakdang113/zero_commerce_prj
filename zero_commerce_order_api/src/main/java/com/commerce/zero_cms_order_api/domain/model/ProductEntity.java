@@ -32,7 +32,7 @@ public class ProductEntity extends BaseEntity {
 
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "product_Id")
     private List<ProductItemEntity> productItemEntities = new ArrayList<>(); // 상품 상세 정보
 
 

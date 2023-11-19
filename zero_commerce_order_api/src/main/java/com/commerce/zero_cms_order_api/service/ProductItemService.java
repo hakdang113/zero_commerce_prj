@@ -21,7 +21,7 @@ public class ProductItemService {
     private final ProductItemRepository productItemRepository;
 
 
-    // 상품 아이템 추가 메서드
+    // 상품 아이템 추가
     @Transactional
     public ProductEntity registerProductItem (Long sellerId, RegisterProductItemForm form) {
         ProductEntity product = productRepository.findBySellerIdAndId(sellerId, form.getProductId())
@@ -39,7 +39,7 @@ public class ProductItemService {
     }
 
 
-    // 상품 아이템 수정 메서드
+    // 상품 아이템 수정
     @Transactional
     public ProductItemEntity updateProductItem (Long sellerId, UpdateProductItemForm form) {
 
@@ -50,5 +50,16 @@ public class ProductItemService {
         productItem.setCount(form.getCount());
         productItem.setPrice(form.getPrice());
         return productItem;
+    }
+
+
+    // 상품 아이템 삭제
+    @Transactional
+    public void deleteProductItem (Long sellerId, Long productItemId) {
+        ProductItemEntity productItem = productItemRepository.findById(productItemId)
+                .filter(pi -> pi.getSellerId().equals(sellerId))
+                .orElseThrow(() -> new CustomException(CustomErrorCode.NOT_FOUND_PRODUCT_ITEM));
+
+        productItemRepository.delete(productItem);
     }
 }

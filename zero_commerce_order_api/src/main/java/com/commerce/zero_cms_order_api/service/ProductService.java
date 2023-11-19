@@ -20,14 +20,14 @@ public class ProductService {
     private final ProductRepository productRepository;
 
 
-    // 상품 추가 메서드
+    // 상품 추가
     @Transactional
     public ProductEntity registerProduct(Long sellerId, RegisterProductForm form) {
         return productRepository.save(ProductEntity.of(sellerId, form));
     }
 
 
-    // 상품 수정 메서드
+    // 상품 수정
     @Transactional
     public ProductEntity updateProduct(Long sellerId, UpdateProductForm form) {
         ProductEntity product = productRepository.findBySellerIdAndId(sellerId, form.getId())
@@ -46,6 +46,14 @@ public class ProductService {
         }
 
         return product;
+    }
+
+
+    // 상품 삭제
+    public void deleteProduct(Long sellerId, Long productId) {
+        ProductEntity product = productRepository.findBySellerIdAndId(sellerId, productId)
+                .orElseThrow(() -> new CustomException(CustomErrorCode.NOT_FOUND_PRODUCT));
+        productRepository.delete(product);
     }
 
 }
