@@ -17,7 +17,7 @@ public class ProductItemDto {
 
 
     // 생성자
-    public static ProductItemDto from(ProductItemEntity item) {
+    public static ProductItemDto from (ProductItemEntity item) {
         return ProductItemDto.builder()
                 .id(item.getId())
                 .name(item.getName())

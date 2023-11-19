@@ -1,4 +1,4 @@
-package com.commerce.zero_cms_order_api.domain;
+package com.commerce.zero_cms_order_api.domain.form;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegisterProductItemForm {
+public class UpdateProductItemForm {
 
-    private Long productId;
+    private Long id;
     private String name;
     private Integer price;
     private Integer count;
+
 }

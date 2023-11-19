@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ApiExceptionAdvice {
 
     // 에러 코드, 에러 메세지 표시
-    @ExceptionHandler({CustomException.class})
+    @ExceptionHandler ({CustomException.class})
     public ResponseEntity<CustomException.CustomExceptionResponse>
     exceptionHandler(HttpServletRequest request, final CustomException exception) {
         return ResponseEntity

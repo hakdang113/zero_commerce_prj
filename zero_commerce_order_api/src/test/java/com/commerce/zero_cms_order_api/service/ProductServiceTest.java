@@ -1,7 +1,7 @@
 package com.commerce.zero_cms_order_api.service;
 
-import com.commerce.zero_cms_order_api.domain.RegisterProductForm;
-import com.commerce.zero_cms_order_api.domain.RegisterProductItemForm;
+import com.commerce.zero_cms_order_api.domain.form.RegisterProductForm;
+import com.commerce.zero_cms_order_api.domain.form.RegisterProductItemForm;
 import com.commerce.zero_cms_order_api.domain.model.ProductEntity;
 import com.commerce.zero_cms_order_api.domain.repository.ProductRepository;
 import org.junit.jupiter.api.Test;

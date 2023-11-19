@@ -1,6 +1,6 @@
 package com.commerce.zero_cms_order_api.domain.model;
 
-import com.commerce.zero_cms_order_api.domain.RegisterProductItemForm;
+import com.commerce.zero_cms_order_api.domain.form.RegisterProductItemForm;
 import lombok.*;
 import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
