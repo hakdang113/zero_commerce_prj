@@ -32,8 +32,8 @@ public class ProductItemEntity extends BaseEntity {
     private Integer count; // 수량
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "productId")
+    @ManyToOne
+    @JoinColumn(name = "product_Id")
     private ProductEntity productEntity;
 
 
