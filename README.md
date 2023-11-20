@@ -38,7 +38,7 @@
           (추가 고려 기능) 별점순
 
 - **판매자**
-    - [ ] 상품 등록 & 수정
+    - [X] 상품 등록 & 수정
         - 브랜드명
         - 상품명
             - '상품명_사이즈' 형태로 등록 및 수정
@@ -90,12 +90,6 @@
 - [ ] 상품문의
 
 
-
-### 추가 고려 기능
-- 별점, 리뷰 등록 및 수정
-- 별점순, 리뷰순 조회
-
-
 ---
 ## ERD
 ![이커머스 프로젝트 drawio](https://github.com/hakdang113/zero_e-commerce/assets/127729985/5a92b718-926b-4b71-8a5c-61ac48983e7c)
@@ -110,6 +104,6 @@
 
 ### **프레임워크** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spring Framwork 2.7.17
 
-### **DB** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+### **DB** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MariaDB 3.1.3
 
 ### **IDE** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intellij 2023.2.4
