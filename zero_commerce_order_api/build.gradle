@@ -2,6 +2,10 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.7.17'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+
+    // querydsl
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+    id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
 }
 group = 'com.commerce'
 version = 'unspecified'
@@ -20,6 +24,49 @@ configurations {
     }
 }
 
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
+
+def querydslSrcDir = 'generated/main/java'
+def jpaModelGenDir = 'generated/main/jpaModelGen'
+def allGen = 'generated/main'
+
+querydsl {
+    jpa = true
+    querydslSourcesDir = querydslSrcDir
+}
+
+jpaModelgen {
+    library = "org.hibernate:hibernate-jpamodelgen:5.4.9.Final"
+    jpaModelgenSourcesDir = jpaModelGenDir
+}
+
+tasks.register('cleanBefore') {
+    doFirst {
+        delete allGen
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', querydslSrcDir,jpaModelGenDir]
+        }
+    }
+}
+
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}
+compileJpaModelgen{
+    options.annotationProcessorPath = configurations.jpaModelgen
+}
+
+compileQuerydsl.dependsOn(cleanBefore)
+compileJava.dependsOn(compileQuerydsl)
+compileJpaModelgen.dependsOn(compileQuerydsl)
+
 ext {
     set('springCloudVersion', "2021.0.1")
 }
@@ -29,7 +76,6 @@ dependencies {
 
     implementation project(path: ":zero_commerce_security", configuration:'default')
 
-    implementation 'org.springframework.boot:spirng-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
@@ -53,6 +99,10 @@ dependencies {
     testImplementation('it.ozimov:embedded-redis:0.7.3') { // 추후 제거
         exclude group: "org.slf4j", module: "slf4j-simple"
     }
+
+    // queryDSL
+    implementation 'com.querydsl:querydsl-jpa:5.0.0'
+    implementation 	'com.querydsl:querydsl-apt:5.0.0'
 
     testImplementation 'com.h2Database:h2'
 
