@@ -15,7 +15,7 @@ public interface MailgunClient {
 
 
     // 메일을 보내는 부분
-    @PostMapping("sandbox26f3f1d2ebdc4952873fb7bc00b8b67d.mailgun.org/messages")
+    @PostMapping("Insert_Your_Mailgun_Domain_Name/messages") // Mailgun 도메인명 기입
     Response sendEmail(@SpringQueryMap SendMailForm form);
     // queryString 형태로 데이터를 보내기 때문에 @SpringQueryMap 사용
 

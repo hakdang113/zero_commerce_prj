@@ -14,7 +14,8 @@ import java.util.List;
 public class UpdateProductForm {
 
     private Long id;
-    private String name;
+    private String brand;
+    private String productName;
     private String description;
     private List<UpdateProductItemForm> updateProductItems;
 

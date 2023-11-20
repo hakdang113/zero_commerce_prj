@@ -13,9 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 public class RegisterProductForm {
 
-    private String name;
+    private String brand;
+    private String productName;
     private String description;
     private List<RegisterProductItemForm> registerProductItems;
-
 
 }

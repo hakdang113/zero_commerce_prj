@@ -33,16 +33,19 @@ public class ProductService {
         ProductEntity product = productRepository.findBySellerIdAndId(sellerId, form.getId())
                 .orElseThrow(() -> new CustomException(CustomErrorCode.NOT_FOUND_PRODUCT));
 
-        product.setName(form.getName());
+        product.setProductName(form.getProductName());
         product.setDescription(form.getDescription());
 
         for (UpdateProductItemForm itemForm : form.getUpdateProductItems()) {
             ProductItemEntity productItem = product.getProductItemEntities().stream()
                     .filter(pi -> pi.getId().equals(itemForm.getId()))
                     .findFirst().orElseThrow(() -> new CustomException(CustomErrorCode.NOT_FOUND_PRODUCT_ITEM));
-            productItem.setName(itemForm.getName());
+            productItem.setItemNameWithSize(itemForm.getItemNameWithSize());
             productItem.setPrice(itemForm.getPrice());
             productItem.setCount(itemForm.getCount());
+            productItem.setSeason(itemForm.getSeason());
+            productItem.setSex(itemForm.getSex());
+            productItem.setCategory(itemForm.getCategory());
         }
 
         return product;

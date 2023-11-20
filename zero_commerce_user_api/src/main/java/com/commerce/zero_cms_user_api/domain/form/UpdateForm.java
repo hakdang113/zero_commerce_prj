@@ -5,21 +5,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Getter
-
-// 테스트 코드 작성을 위해 추가한 어노테이션
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignUpForm {
+public class UpdateForm {
 
-    private String name;
-    private String email;
     private String userPassword;
     private String cellPhoneNumber;
     private String address;
-    private LocalDate birthDate;
 
 }

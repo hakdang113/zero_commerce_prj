@@ -28,7 +28,7 @@ public class ProductSearchService {
     }
 
     // 검색
-    public List<ProductEntity> searchByName(String name) {
-        return productRepository.searchByName(name);
+    public List<ProductEntity> searchByProductName(String productName) {
+        return productRepository.searchByProductName(productName);
     }
 }

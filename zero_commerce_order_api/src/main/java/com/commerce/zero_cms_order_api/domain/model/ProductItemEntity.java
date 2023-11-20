@@ -24,12 +24,15 @@ public class ProductItemEntity extends BaseEntity {
     private Long sellerId;
 
     @Audited
-    private String name; // 상품명
+    private String itemNameWithSize; // 상품명
 
     @Audited
     private Integer price; // 가격
 
     private Integer count; // 수량
+    private String season; // '년도/시즌'
+    private String sex; // 남성용(M), 여성용(W), 공용(MW)
+    private String category; // 카테고리
 
 
     @ManyToOne
@@ -40,7 +43,7 @@ public class ProductItemEntity extends BaseEntity {
     public static ProductItemEntity of(Long sellerId, RegisterProductItemForm form) {
         return ProductItemEntity.builder()
                 .sellerId(sellerId)
-                .name(form.getName())
+                .itemNameWithSize(form.getItemNameWithSize())
                 .price(form.getPrice())
                 .count(form.getCount())
                 .build();

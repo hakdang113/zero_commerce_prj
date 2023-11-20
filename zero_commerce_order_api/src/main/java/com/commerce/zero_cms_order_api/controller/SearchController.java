@@ -21,9 +21,9 @@ public class SearchController {
 
     // 상품 검색
     @GetMapping
-    public ResponseEntity<List<ProductDto>> searchByName(@RequestParam String name) {
+    public ResponseEntity<List<ProductDto>> searchByName(@RequestParam String productName) {
         return ResponseEntity.ok(
-                productSearchService.searchByName(name).stream()
+                productSearchService.searchByProductName(productName).stream()
                         .map(ProductDto::fromWithoutProductItems).collect(Collectors.toList())
         );
     }

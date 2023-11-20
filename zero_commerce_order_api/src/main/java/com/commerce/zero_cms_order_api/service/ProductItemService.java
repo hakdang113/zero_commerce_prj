@@ -29,7 +29,7 @@ public class ProductItemService {
 
         // 상품의 아이템들이 같은 옵션명을 가지고 있는지 확인
         if (product.getProductItemEntities().stream()
-                .anyMatch(item -> item.getName().equals(form.getName()))) {
+                .anyMatch(item -> item.getItemNameWithSize().equals(form.getItemNameWithSize()))) {
             throw new CustomException(CustomErrorCode.SAME_ITEM_NAME_EXISTED);
         }
 
@@ -46,9 +46,13 @@ public class ProductItemService {
         ProductItemEntity productItem = productItemRepository.findById(form.getId())
                 .filter(pi -> pi.getSellerId().equals(sellerId))
                 .orElseThrow(() -> new CustomException(CustomErrorCode.NOT_FOUND_PRODUCT_ITEM));
-        productItem.setName(form.getName());
-        productItem.setCount(form.getCount());
+        productItem.setItemNameWithSize(form.getItemNameWithSize());
         productItem.setPrice(form.getPrice());
+        productItem.setCount(form.getCount());
+        productItem.setSeason(form.getSeason());
+        productItem.setSex(form.getSex());
+        productItem.setCategory(form.getCategory());
+
         return productItem;
     }
 

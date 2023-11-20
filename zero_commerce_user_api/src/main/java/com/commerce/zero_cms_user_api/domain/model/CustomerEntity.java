@@ -32,13 +32,11 @@ public class CustomerEntity extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 숫자값이 순차적으로 올라가도록 설정
     private Long id;
 
-    @Column(name = "USER_ID", unique = true)
-    private String userId;
-    private String userPassword;
     private String name;
-    // @Column(name = "USER_EMAIL")
+    @Column(unique = true)
     private String email;
-    private String cellPhoneNumber; // 핸드폰 번호에 대한 valtdation을 고민해보면 좋을듯
+    private String userPassword;
+    private String cellPhoneNumber;
     private String address;
     private LocalDate birthDate;
 

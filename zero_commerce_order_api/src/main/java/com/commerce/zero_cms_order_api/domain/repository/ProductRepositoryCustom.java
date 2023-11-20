@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ProductRepositoryCustom {
 
-    List<ProductEntity> searchByName(String name);
+    List<ProductEntity> searchByProductName(String productName);
 }

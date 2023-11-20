@@ -45,9 +45,9 @@ public class CartService {
                     .collect(Collectors.toMap(Cart.ProductItem::getId, item -> item));
 
 
-            // redis의 name과 form의 name이 다른 경우
-            if (!redisProduct.getName().equals(form.getName())) {
-                cart.addMessage(redisProduct.getName() + " 상품 정보가 변경되었습니다.");
+            // redis의 productName과 form의 productName이 다른 경우
+            if (!redisProduct.getProductName().equals(form.getProductName())) {
+                cart.addMessage(redisProduct.getProductName() + " 상품 정보가 변경되었습니다.");
             }
 
             for (Cart.ProductItem productItem : productItems) {
@@ -59,7 +59,7 @@ public class CartService {
                 } else { // 있으면
                     if (!redisProductItem.getPrice().equals(productItem.getPrice())) { // 가격 변경
                         cart.addMessage(
-                                redisProduct.getName() + productItem.getName() + "의 가격이 변경되었습니다."
+                                redisProduct.getProductName() + productItem.getItemNameWithSize() + "의 가격이 변경되었습니다."
                         );
                     }
                     redisProductItem.setCount(redisProductItem.getCount() + productItem.getCount()); // 수량 변경

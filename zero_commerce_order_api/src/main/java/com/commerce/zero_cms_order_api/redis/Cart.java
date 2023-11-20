@@ -36,7 +36,8 @@ public class Cart {
     public static class Product {
         private Long id; // 상품 id
         private Long sellerId;
-        private String name;
+        private String brand;
+        private String productName;
         private String description;
         private List<ProductItem> productItems = new ArrayList<>();
 
@@ -45,7 +46,8 @@ public class Cart {
             return Product.builder()
                     .id(form.getId())
                     .sellerId(form.getSellerId())
-                    .name(form.getName())
+                    .brand(form.getBrand())
+                    .productName(form.getProductName())
                     .description(form.getDescription())
                     .productItems(form.getProductItems()
                             .stream().map(ProductItem::from)
@@ -61,17 +63,23 @@ public class Cart {
     @AllArgsConstructor
     public static class ProductItem {
         private Long id;
-        private String name;
-        private Integer count;
-        private Integer price;
+        private String itemNameWithSize; // '상품명_사이즈'
+        private Integer price; // 가격
+        private Integer count; // 0 ~ 999개
+        private String season; // '년도/시즌'
+        private String sex; // 남성용(M), 여성용(W), 공용(MW)
+        private String category; // 카테고리
 
 
         public static ProductItem from(AddProductCartForm.ProductItem form) {
             return ProductItem.builder()
                     .id(form.getId())
-                    .name(form.getName())
-                    .count(form.getCount())
+                    .itemNameWithSize(form.getItemNameWithSize())
                     .price(form.getPrice())
+                    .count(form.getCount())
+                    .season(form.getSeason())
+                    .sex(form.getSex())
+                    .category(form.getCategory())
                     .build();
         }
     }

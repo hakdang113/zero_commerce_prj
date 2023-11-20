@@ -60,7 +60,6 @@ public class CartApplication {
                     Integer currentCount = currentItemCountMap.get(formItem.getId());
 
                     return formItem.getCount() + cartCount > currentCount;
-
                 });
     }
 }

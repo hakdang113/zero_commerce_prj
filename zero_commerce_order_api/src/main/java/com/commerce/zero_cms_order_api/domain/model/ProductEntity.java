@@ -1,6 +1,7 @@
 package com.commerce.zero_cms_order_api.domain.model;
 
 import com.commerce.zero_cms_order_api.domain.form.RegisterProductForm;
+import com.commerce.zero_cms_order_api.domain.form.RegisterProductItemForm;
 import lombok.*;
 import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
@@ -26,9 +27,12 @@ public class ProductEntity extends BaseEntity {
 
     private Long sellerId; // 판매자 id
 
-    private String name; // 상품명
+    private String brand; // 브랜드명
+    private String productName; // 상품명
 
     private String description; // 상품 설명
+
+    private List<RegisterProductItemForm> registerProductItems;
 
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -40,7 +44,8 @@ public class ProductEntity extends BaseEntity {
     public static ProductEntity of(Long sellerId, RegisterProductForm form) {
         return ProductEntity.builder()
                 .sellerId(sellerId)
-                .name(form.getName())
+                .brand(form.getBrand())
+                .productName(form.getProductName())
                 .description(form.getDescription())
                 .productItemEntities(form.getRegisterProductItems().stream()
                         .map(piFrom -> ProductItemEntity.of(sellerId, piFrom))

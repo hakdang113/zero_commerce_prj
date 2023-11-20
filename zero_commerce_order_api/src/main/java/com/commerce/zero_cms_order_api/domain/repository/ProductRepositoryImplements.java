@@ -16,8 +16,8 @@ public class ProductRepositoryImplements implements ProductRepositoryCustom{
 
 
     @Override
-    public List<ProductEntity> searchByName(String name) {
-        String search = "%" + name + "%";
+    public List<ProductEntity> searchByProductName(String productName) {
+        String search = "%" + productName + "%";
 
         QProductEntity product = QProductEntity.productEntity;
         return queryFactory.selectFrom(product)

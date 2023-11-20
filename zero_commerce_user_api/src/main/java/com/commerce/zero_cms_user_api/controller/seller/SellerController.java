@@ -26,7 +26,6 @@ public class SellerController{
     // 이미 로그인 된 상태에서,
     // 토큰을 이용하여 고객 정보를 가져옴
     // 토큰은 암호화 되어있는 상태이므로,
-    //
     @GetMapping("/getInfo")
     public ResponseEntity<SellerDto> getInfo(@RequestHeader(name = "X-AUTH-TOKEN") String token) {
         UserVo userVo = jwtAuthenticationTokenProvider.getUserVo(token); // 토큰을 통해서 UserVo를 가져옴
