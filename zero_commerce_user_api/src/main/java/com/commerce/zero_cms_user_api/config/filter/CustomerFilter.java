@@ -26,7 +26,7 @@ public class CustomerFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        String token = httpServletRequest.getHeader("X-AUTH_TOKEN"); // "X-AUTH_TOKEN" 헤더로 jwt 토큰을 받음
+        String token = httpServletRequest.getHeader("X-AUTH-TOKEN"); // "X-AUTH-TOKEN" 헤더로 jwt 토큰을 받음
 
         // isValidToken() 으로 token이 유효한 토큰인지 확인
         if (!jwtAuthenticationTokenProvider.isValidToken(token)) { // 유효하지 않은 토큰이면

@@ -14,7 +14,7 @@ import java.util.Objects;
 public class JwtAuthenticationTokenProvider {
 
     private final String secretKey = "secretKey";
-    private final long TOKEN_VALID_TIME = 1000L * 60 * 60 * 24; // 1일
+    private final Long TOKEN_VALID_TIME = 1000L * 60 * 60 * 24; // 1일
 
 
     // Jwt 토큰 생성 메서드
@@ -48,7 +48,9 @@ public class JwtAuthenticationTokenProvider {
 
     public UserVo getUserVo (String token) {
         Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
-        return new UserVo(Long.valueOf(Objects.requireNonNull(Aes256Util.decrypt(claims.getId()))), Aes256Util.decrypt(claims.getSubject()));
+        return new UserVo(Long.valueOf(Objects.requireNonNull(
+                Aes256Util.decrypt(claims.getId()))), Aes256Util.decrypt(claims.getSubject())
+        );
     }
 
 }

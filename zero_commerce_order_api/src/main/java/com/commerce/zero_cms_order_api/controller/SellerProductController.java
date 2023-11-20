@@ -61,7 +61,7 @@ public class SellerProductController {
 
     // 상품 아이템 수정
     @PutMapping("/item")
-    public ResponseEntity<ProductItemDto> updateProductItem(@RequestHeader (name = "X-AUTH_TOKEN") String token,
+    public ResponseEntity<ProductItemDto> updateProductItem(@RequestHeader (name = "X-AUTH-TOKEN") String token,
                                                             @RequestBody UpdateProductItemForm form) {
 
         // return 을 위한 Dto model 필요
@@ -73,7 +73,7 @@ public class SellerProductController {
 
     // 상품 삭제
     @DeleteMapping
-    public ResponseEntity<Void> deleteProduct(@RequestHeader (name = "X-AUTH_TOKEN") String token,
+    public ResponseEntity<Void> deleteProduct(@RequestHeader (name = "X-AUTH-TOKEN") String token,
                                               @RequestBody Long id) {
 
         productService.deleteProduct(jwtAuthenticationTokenProvider.getUserVo(token).getId(), id);
@@ -83,7 +83,7 @@ public class SellerProductController {
 
     // 상품 아이템 삭제
     @DeleteMapping("/item")
-    public ResponseEntity<Void> deleteProductItem(@RequestHeader (name = "X-AUTH_TOKEN") String token,
+    public ResponseEntity<Void> deleteProductItem(@RequestHeader (name = "X-AUTH-TOKEN") String token,
                                                   @RequestBody Long id) {
 
         productItemService.deleteProductItem(jwtAuthenticationTokenProvider.getUserVo(token).getId(), id);

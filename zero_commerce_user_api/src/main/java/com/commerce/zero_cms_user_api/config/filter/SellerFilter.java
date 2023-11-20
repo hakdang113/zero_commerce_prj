@@ -24,7 +24,7 @@ public class SellerFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        String token = httpServletRequest.getHeader("X-AUTH_TOKEN"); // "X-AUTH_TOKEN" 헤더로 jwt 토큰을 받음
+        String token = httpServletRequest.getHeader("X-AUTH-TOKEN"); // "X-AUTH-TOKEN" 헤더로 jwt 토큰을 받음
         if (!jwtAuthenticationTokenProvider.isValidToken(token)) { // isValidToken() 으로 token이 유효한 토큰인지 확인
             throw new ServletException("Invalid Access");
         }

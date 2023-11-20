@@ -4,7 +4,6 @@ import com.commerce.zero_cms_order_api.domain.model.ProductEntity;
 import com.commerce.zero_cms_order_api.domain.model.QProductEntity;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,8 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductRepositoryImplements implements ProductRepositoryCustom{
 
-
-    public JPAQueryFactory queryFactory;
+    private final JPAQueryFactory queryFactory;
 
 
     @Override
